@@ -20,7 +20,8 @@ jobs:
         dotnet --list-runtimes
         echo %DOTNET_ROOT%
         echo %PATH%
-      shell: cmd
+        echo $DOTNET_ROOT
+        echo $PATH
     - name: Setup .NET Core
       uses: actions/setup-dotnet@master
       with:
@@ -32,4 +33,5 @@ jobs:
         dotnet --list-runtimes
         echo %DOTNET_ROOT%
         echo %PATH%
-      shell: cmd
+        echo $DOTNET_ROOT
+        echo $PATH
