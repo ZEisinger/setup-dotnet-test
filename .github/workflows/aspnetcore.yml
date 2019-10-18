@@ -39,3 +39,4 @@ jobs:
       run: |
         dotnet build
         dotnet test
+        dotnet run --project test-standard/test-standard.csproj 
