@@ -43,7 +43,7 @@ jobs:
         dotnet test
         dotnet run --project test-standard/test-standard.csproj 
         dotnet run --project test-tests/test-tests.csproj 
-    - if: ! (contains(matrix.runs-on, 'windows'))
+    - if: (!contains(matrix.runs-on, 'windows'))
       name: build with dotnet
       run: |
         DOTNET_ROOT=$DOTNET_ROOT/3.0.100/x64
