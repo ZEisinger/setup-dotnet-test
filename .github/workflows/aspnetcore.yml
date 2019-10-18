@@ -26,7 +26,7 @@ jobs:
       uses: actions/setup-dotnet@master
       with:
         dotnet-version: 3.0.100
-    - name: Build with dotnet
+    - name: check dotnet version late
       run: |
         dotnet --info
         dotnet --list-sdks
@@ -35,3 +35,7 @@ jobs:
         echo %PATH%
         echo $DOTNET_ROOT
         echo $PATH
+    - name: build with dotnet
+      run: |
+        dotnet build
+        dotnet test
