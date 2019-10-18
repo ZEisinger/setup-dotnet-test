@@ -37,6 +37,8 @@ jobs:
         echo $PATH
     - name: build with dotnet
       run: |
+        set DOTNET_ROOT=%DOTNET_ROOT%3.0.100/x64
+        DOTNET_ROOT=$DOTNET_ROOT/3.0.100/x64
         dotnet build
         dotnet test
         dotnet run --project test-standard/test-standard.csproj 
