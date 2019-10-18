@@ -23,7 +23,7 @@ jobs:
         echo $DOTNET_ROOT
         echo $PATH
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@master
+      uses: rojepp/setup-dotnet@fix_dotnet_root
       with:
         dotnet-version: 3.0.100
     - name: check dotnet version late
@@ -35,18 +35,8 @@ jobs:
         echo %PATH%
         echo $DOTNET_ROOT
         echo $PATH
-    - if: contains(matrix.runs-on, 'windows')
-      name: build with dotnet
+    - name: build with dotnet
       run: |
-        set DOTNET_ROOT=%DOTNET_ROOT%3.0.100/x64
-        dotnet build
-        dotnet test
-        dotnet run --project test-standard/test-standard.csproj 
-        dotnet run --project test-tests/test-tests.csproj 
-    - if: (!contains(matrix.runs-on, 'windows'))
-      name: build with dotnet
-      run: |
-        DOTNET_ROOT=$DOTNET_ROOT/3.0.100/x64
         dotnet build
         dotnet test
         dotnet run --project test-standard/test-standard.csproj 
