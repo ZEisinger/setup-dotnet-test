@@ -35,9 +35,17 @@ jobs:
         echo %PATH%
         echo $DOTNET_ROOT
         echo $PATH
-    - name: build with dotnet
+    - if: contains(matrix.runs-on, 'windows')
+      name: build with dotnet
       run: |
         set DOTNET_ROOT=%DOTNET_ROOT%3.0.100/x64
+        dotnet build
+        dotnet test
+        dotnet run --project test-standard/test-standard.csproj 
+        dotnet run --project test-tests/test-tests.csproj 
+    - if: ! (contains(matrix.runs-on, 'windows'))
+      name: build with dotnet
+      run: |
         DOTNET_ROOT=$DOTNET_ROOT/3.0.100/x64
         dotnet build
         dotnet test
