@@ -8,7 +8,8 @@ namespace test_standard
         [Fact]
         public void Test1()
         {
-
+            var instance = new test_dotnet.Class();
+            Assert.True(instance.isTrue());
         }
     }
 }
