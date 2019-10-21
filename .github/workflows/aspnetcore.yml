@@ -62,3 +62,4 @@ jobs:
         dotnet test
         dotnet run --project test-standard/test-standard.csproj 
         dotnet run --project test-tests/test-tests.csproj 
+
