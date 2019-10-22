@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/setup-dotnet@warn-on-master
       with:
-        version: '2.1.802'
+        dotnet-version: '2.1.802'
     - name: info
       run: |
         dotnet --version
