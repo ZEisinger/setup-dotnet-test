@@ -27,8 +27,8 @@ jobs:
   build:
     name: ${{ matrix.runs-on }}
     runs-on: ${{ matrix.runs-on }}
-    env:
-      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+#    env:
+#      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
     strategy:
       fail-fast: false
       matrix:
