@@ -3,27 +3,27 @@ name: Core build
 on: [push]
 
 jobs:
-  build-version-test:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/setup-dotnet@master
-      with:
-        dotnet-version: '2.1.802'
-    - run: |
-        dotnet --version
-        dotnet --info
-  build-version-test-no-multilevel:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/setup-dotnet@master
-      with:
-        dotnet-version: '2.1.802'
-    - name: info
-      run: |
-        dotnet --version
-        dotnet --info
-      env:
-        DOTNET_MULTILEVEL_LOOKUP: 0
+#  build-version-test:
+#    runs-on: windows-latest
+#    steps:
+#    - uses: actions/setup-dotnet@master
+#      with:
+#        dotnet-version: '2.1.802'
+#    - run: |
+#        dotnet --version
+#        dotnet --info
+#  build-version-test-no-multilevel:
+#    runs-on: windows-latest
+#    steps:
+#    - uses: actions/setup-dotnet@master
+#      with:
+#        dotnet-version: '2.1.802'
+#    - name: info
+#      run: |
+#        dotnet --version
+#        dotnet --info
+#      env:
+#        DOTNET_MULTILEVEL_LOOKUP: 0
   build:
     name: ${{ matrix.runs-on }}
     runs-on: ${{ matrix.runs-on }}
@@ -32,7 +32,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runs-on: [macOS-10.14, windows-2016, ubuntu-latest, windows-latest]
+#        runs-on: [macOS-10.14, windows-2016, ubuntu-latest, windows-latest]
+        runs-on: [macOS-10.14, ubuntu-latest]
     
     steps:
     - uses: actions/checkout@v1
@@ -46,7 +47,7 @@ jobs:
         echo $DOTNET_ROOT
         echo $PATH
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@154c08aac40b44a70d96472ea241180e12569317
+      uses: actions/setup-dotnet@719c622d485b1115e319aff474d105a8b489a90b
       with:
         dotnet-version: 3.0.100-preview8-013656
     - name: check dotnet version late
