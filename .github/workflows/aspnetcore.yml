@@ -46,7 +46,7 @@ jobs:
         echo $DOTNET_ROOT
         echo $PATH
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@c4b619a5533c3c666f9bac250e5e7d46a8f4006f
       with:
         dotnet-version: 3.0.100-preview8-013656
     - name: check dotnet version late
