@@ -47,7 +47,7 @@ jobs:
         echo $DOTNET_ROOT
         echo $PATH
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@sxs-with-fallback
+      uses: actions/setup-dotnet@mac-urls
       with:
         dotnet-version: 3.0.100-preview8-013656
     - name: check dotnet version late
