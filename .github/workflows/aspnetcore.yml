@@ -47,10 +47,8 @@ jobs:
         echo %PATH%
         echo $DOTNET_ROOT
         echo $PATH
-    - name: Setup .NET Core
+    - name: Setup .NET Core with global.json
       uses: actions/setup-dotnet@sxs-with-fallback
-      with:
-        dotnet-version: 3.1.100
     - name: check dotnet version late
       run: |
         dotnet --info
