@@ -3,13 +3,38 @@ name: Core build
 on: [push]
 
 jobs:
+#  build-version-test:
+#    runs-on: windows-latest
+#    steps:
+#    - uses: actions/setup-dotnet@master
+#      with:
+#        dotnet-version: '2.1.802'
+#    - run: |
+#        dotnet --version
+#        dotnet --info
+#  build-version-test-no-multilevel:
+#    runs-on: windows-latest
+#    steps:
+#    - uses: actions/setup-dotnet@master
+#      with:
+#        dotnet-version: '2.1.802'
+#    - name: info
+#      run: |
+#        dotnet --version
+#        dotnet --info
+#      env:
+#        DOTNET_MULTILEVEL_LOOKUP: 0
   build:
     name: ${{ matrix.runs-on }}
     runs-on: ${{ matrix.runs-on }}
+#    env:
+#      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
     strategy:
       fail-fast: false
       matrix:
-        runs-on: [macOS-10.14, windows-2016]
+#        runs-on: [macOS-10.14, windows-2016, ubuntu-latest, windows-latest]
+        runs-on: [macOS-latest, ubuntu-latest, windows-latest]
+#        runs-on: [ubuntu-latest]
     
     steps:
     - uses: actions/checkout@v1
@@ -22,10 +47,8 @@ jobs:
         echo %PATH%
         echo $DOTNET_ROOT
         echo $PATH
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@master
-      with:
-        dotnet-version: 3.0.100
+    - name: Setup .NET Core with global.json
+      uses: actions/setup-dotnet@sxs-with-fallback
     - name: check dotnet version late
       run: |
         dotnet --info
@@ -35,18 +58,8 @@ jobs:
         echo %PATH%
         echo $DOTNET_ROOT
         echo $PATH
-    - if: contains(matrix.runs-on, 'windows')
-      name: build with dotnet
+    - name: build with dotnet
       run: |
-        set DOTNET_ROOT=%DOTNET_ROOT%3.0.100/x64
-        dotnet build
-        dotnet test
-        dotnet run --project test-standard/test-standard.csproj 
-        dotnet run --project test-tests/test-tests.csproj 
-    - if: (!contains(matrix.runs-on, 'windows'))
-      name: build with dotnet
-      run: |
-        DOTNET_ROOT=$DOTNET_ROOT/3.0.100/x64
         dotnet build
         dotnet test
         dotnet run --project test-standard/test-standard.csproj 

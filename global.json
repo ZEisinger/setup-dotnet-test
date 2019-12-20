@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "sdk": {
     "version": "2.2.100",
@@ -5,3 +6,12 @@
     "rollForward": "major"
   }
 }
+=======
+{
+  "sdk": {
+    "version": "2.2.100",
+    "allowPrerelease": true,
+    "rollForward": "latestMajor"
+  }
+}
+>>>>>>> 0562ff7f727f5112f2928b168bd5997f4e7857f5
