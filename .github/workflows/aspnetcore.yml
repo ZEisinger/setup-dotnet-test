@@ -33,7 +33,8 @@ jobs:
       fail-fast: false
       matrix:
 #        runs-on: [macOS-10.14, windows-2016, ubuntu-latest, windows-latest]
-        runs-on: [macOS-10.14, ubuntu-latest, windows-latest]
+#        runs-on: [macOS-10.14, ubuntu-latest, windows-latest]
+        runs-on: [ubuntu-latest]
     
     steps:
     - uses: actions/checkout@v1
@@ -47,9 +48,9 @@ jobs:
         echo $DOTNET_ROOT
         echo $PATH
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@mac-urls
+      uses: actions/setup-dotnet@sxs-with-fallback
       with:
-        dotnet-version: 3.0.100-preview8-013656
+        dotnet-version: 4.5.0
     - name: check dotnet version late
       run: |
         dotnet --info
