@@ -50,7 +50,7 @@ jobs:
     - name: Setup .NET Core with global.json
       uses: actions/setup-dotnet@sxs-with-fallback
       with:
-        sdk-version: 4.8.0
+        dotnet-version: 4.8.0
     - name: check dotnet version late
       run: |
         dotnet --info
