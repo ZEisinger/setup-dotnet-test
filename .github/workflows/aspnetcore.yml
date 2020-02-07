@@ -50,7 +50,7 @@ jobs:
     - name: Setup .NET Core with global.json
       uses: ericsciple/setup-dotnet@users/ericsciple/m165proxy
       with:
-        dotnet-version: 4.8.0
+        dotnet-version: 3.1.100
     - name: check dotnet version late
       run: |
         dotnet --info
