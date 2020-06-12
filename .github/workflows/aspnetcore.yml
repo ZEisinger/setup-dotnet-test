@@ -6,7 +6,7 @@ jobs:
   build-version-test:
     runs-on: windows-latest
     steps:
-    - uses: laurenprinn/setup-dotnet@laurenprinn-regularExpressionChanges
+    - uses: actions/setup-dotnet@master
       with:
         dotnet-version: '2.1.802'
     - run: |
@@ -35,7 +35,7 @@ jobs:
 #        runs-on: [ubuntu-latest]
     
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/setup-dotnet@master
     - name: check dotnet version early
       run: |
         dotnet --info
