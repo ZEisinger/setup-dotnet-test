@@ -6,7 +6,7 @@ jobs:
   build-version-test:
     runs-on: windows-latest
     steps:
-    - uses: ericsciple/setup-dotnet@master
+    - uses: laurenprinn/setup-dotnet@laurenprinn-regularExpressionChanges
       with:
         dotnet-version: '2.1.802'
     - run: |
@@ -15,7 +15,7 @@ jobs:
   build-version-test-no-multilevel:
     runs-on: windows-latest
     steps:
-    - uses: ericsciple/setup-dotnet@master
+    - uses: actions/setup-dotnet@master
       with:
         dotnet-version: '2.1.802'
     - name: info
@@ -46,7 +46,7 @@ jobs:
         echo $DOTNET_ROOT
         echo $PATH
     - name: Setup .NET Core with global.json
-      uses: ericsciple/setup-dotnet@master
+      uses: actions/setup-dotnet@master
       with:
         dotnet-version: 3.1.100
     - name: check dotnet version late
