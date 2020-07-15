@@ -8,7 +8,7 @@ jobs:
   build-version-test:
     runs-on: windows-latest
     steps:
-    - uses: actions/setup-dotnet@master
+    - uses: actions/setup-dotnet@main
       with:
         dotnet-version: '2.1.802'
     - run: |
@@ -17,7 +17,7 @@ jobs:
   build-version-test-no-multilevel:
     runs-on: windows-latest
     steps:
-    - uses: actions/setup-dotnet@master
+    - uses: actions/setup-dotnet@main
       with:
         dotnet-version: '2.1.802'
     - name: info
@@ -37,7 +37,7 @@ jobs:
 #        runs-on: [ubuntu-latest]
     
     steps:
-    - uses: actions/setup-dotnet@master
+    - uses: actions/setup-dotnet@main
     - name: check dotnet version early
       run: |
         dotnet --info
@@ -48,7 +48,7 @@ jobs:
         echo $DOTNET_ROOT
         echo $PATH
     - name: Setup .NET Core with global.json
-      uses: actions/setup-dotnet@master
+      uses: actions/setup-dotnet@main
       with:
         dotnet-version: 3.1.100
     - name: check dotnet version late
