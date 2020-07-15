@@ -62,7 +62,9 @@ jobs:
         echo $PATH
     - name: build with dotnet
       run: |
-        dotnet build
-        dotnet test
+        ls
+        pwd
+        dotnet build setup-dotnet-test.sln
+        dotnet test setup-dotnet-test.sln
         dotnet run --project test-standard/test-standard.csproj 
         dotnet run --project test-tests/test-tests.csproj 
