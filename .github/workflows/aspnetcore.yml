@@ -8,6 +8,8 @@ jobs:
   lint-code:
     # So that we don't juggle with different OS for accessing the right path...
     runs-on: ubuntu-latest
+    env:
+      DOTNET_NOLOGO: true 
     steps:
       - uses: actions/checkout@v1
       - name: Setup .NET Core
