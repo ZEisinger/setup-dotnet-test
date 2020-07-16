@@ -80,7 +80,7 @@ jobs:
       # For some reasons the path is kinda messed up...
       # Doesn't consider the .config folder =|
       - name: Restore tools
-        run: dotnet tool restore
+        run: dotnet tool restore --tool-manifest .config/dotnet-tools.json
       - name: Run F# Linter
         run: dotnet fsharplint lint --lint-config fsharplint.json MessingUp.sln
 
