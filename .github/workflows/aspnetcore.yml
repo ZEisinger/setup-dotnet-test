@@ -68,3 +68,19 @@ jobs:
         dotnet test setup-dotnet-test.sln
         dotnet run --project test-standard/test-standard.csproj 
         dotnet run --project test-tests/test-tests.csproj 
+  lint-code:
+    # So that we don't juggle with different OS for accessing the right path...
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 2.1
+      # For some reasons the path is kinda messed up...
+      # Doesn't consider the .config folder =|
+      - name: Restore tools
+        run: dotnet tool restore
+      - name: Run F# Linter
+        run: dotnet fsharplint lint --lint-config fsharplint.json MessingUp.sln
+
