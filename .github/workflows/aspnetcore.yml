@@ -21,7 +21,8 @@ jobs:
       - name: Restore tools
         run: |
           dotnet dev-certs https --trust
-          dotnet tool restore --tool-manifest .config/dotnet-tools.json
+          dotnet tool restore dotnet-fsharplint
+	  dotnet tool restore --tool-manifest .config/dotnet-tools.json
       - name: Run F# Linter
         run: dotnet tool run dotnetsay hello from dotnetsay
 
