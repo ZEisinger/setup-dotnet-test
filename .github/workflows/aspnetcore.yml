@@ -5,69 +5,69 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-version-test:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/setup-dotnet@main
-      with:
-        dotnet-version: '2.1.802'
-    - run: |
-        dotnet --version
-        dotnet --info
-  build-version-test-no-multilevel:
-    runs-on: windows-latest
-    steps:
-    - uses: actions/setup-dotnet@main
-      with:
-        dotnet-version: '2.1.802'
-    - name: info
-      run: |
-        dotnet --version
-        dotnet --info
-      env:
-        DOTNET_MULTILEVEL_LOOKUP: 0
-  build:
-    name: ${{ matrix.runs-on }}
-    runs-on: ${{ matrix.runs-on }}
-    strategy:
-      fail-fast: false
-      matrix:
-#        runs-on: [macOS-10.14, windows-2016, ubuntu-latest, windows-latest]
-        runs-on: [macOS-latest, ubuntu-latest, windows-latest]
-#        runs-on: [ubuntu-latest]
+#  build-version-test:
+#    runs-on: windows-latest
+#    steps:
+#    - uses: actions/setup-dotnet@main
+#      with:
+#        dotnet-version: '2.1.802'
+#    - run: |
+#        dotnet --version
+#        dotnet --info
+#  build-version-test-no-multilevel:
+#    runs-on: windows-latest
+#    steps:
+#    - uses: actions/setup-dotnet@main
+#      with:
+#        dotnet-version: '2.1.802'
+#    - name: info
+#      run: |
+#        dotnet --version
+#        dotnet --info
+#      env:
+#        DOTNET_MULTILEVEL_LOOKUP: 0
+#  build:
+#    name: ${{ matrix.runs-on }}
+#    runs-on: ${{ matrix.runs-on }}
+#    strategy:
+#      fail-fast: false
+#      matrix:
+##        runs-on: [macOS-10.14, windows-2016, ubuntu-latest, windows-latest]
+#        runs-on: [macOS-latest, ubuntu-latest, windows-latest]
+##        runs-on: [ubuntu-latest]
     
-    steps:
-    - uses: actions/setup-dotnet@main
-    - name: check dotnet version early
-      run: |
-        dotnet --info
-        dotnet --list-sdks
-        dotnet --list-runtimes
-        echo %DOTNET_ROOT%
-        echo %PATH%
-        echo $DOTNET_ROOT
-        echo $PATH
-    - name: Setup .NET Core with global.json
-      uses: actions/setup-dotnet@main
-      with:
-        dotnet-version: 3.1.100
-    - name: check dotnet version late
-      run: |
-        dotnet --info
-        dotnet --list-sdks
-        dotnet --list-runtimes
-        echo %DOTNET_ROOT%
-        echo %PATH%
-        echo $DOTNET_ROOT
-        echo $PATH
-    - name: build with dotnet
-      run: |
-        ls
-        pwd
-        dotnet build setup-dotnet-test.sln
-        dotnet test setup-dotnet-test.sln
-        dotnet run --project test-standard/test-standard.csproj 
-        dotnet run --project test-tests/test-tests.csproj 
+#    steps:
+#    - uses: actions/setup-dotnet@main
+#    - name: check dotnet version early
+#      run: |
+#        dotnet --info
+#        dotnet --list-sdks
+#        dotnet --list-runtimes
+#        echo %DOTNET_ROOT%
+#        echo %PATH%
+#        echo $DOTNET_ROOT
+#        echo $PATH
+#    - name: Setup .NET Core with global.json
+#      uses: actions/setup-dotnet@main
+#      with:
+#        dotnet-version: 3.1.100
+#    - name: check dotnet version late
+#      run: |
+#        dotnet --info
+#        dotnet --list-sdks
+#        dotnet --list-runtimes
+#        echo %DOTNET_ROOT%
+#        echo %PATH%
+#        echo $DOTNET_ROOT
+#        echo $PATH
+#    - name: build with dotnet
+#      run: |
+#        ls
+#        pwd
+#        dotnet build setup-dotnet-test.sln
+#        dotnet test setup-dotnet-test.sln
+#        dotnet run --project test-standard/test-standard.csproj 
+#        dotnet run --project test-tests/test-tests.csproj 
   lint-code:
     # So that we don't juggle with different OS for accessing the right path...
     runs-on: ubuntu-latest
