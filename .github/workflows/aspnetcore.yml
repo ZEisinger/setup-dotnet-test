@@ -21,10 +21,6 @@ jobs:
       - name: Restore tools
         run: |
           dotnet tool restore --tool-manifest .config/dotnet-tools.json_
-      - name: Setup .NET Core 2
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 2.1
       - name: Run F# Linter
         run: dotnet fsharplint lint --lint-config fsharplint.json MessingUp.sln
 
