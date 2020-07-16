@@ -16,6 +16,7 @@ jobs:
       # Doesn't consider the .config folder =|
       - name: Restore tools
         run: |
+          echo $RUNNER_TEMP
           dotnet tool restore
       - name: Run F# Linter
         run: dotnet tool run dotnet-fsharplint lint --lint-config fsharplint.json MessingUp.sln
