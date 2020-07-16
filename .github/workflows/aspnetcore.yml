@@ -22,7 +22,7 @@ jobs:
         run: |
           dotnet tool restore --tool-manifest .config/dotnet-tools.json_
       - name: Run F# Linter
-        run: dotnet fsharplint lint --lint-config fsharplint.json MessingUp.sln
+        run: dotnet tool fsharplint lint --lint-config fsharplint.json MessingUp.sln
 
 
 #  build-version-test:
