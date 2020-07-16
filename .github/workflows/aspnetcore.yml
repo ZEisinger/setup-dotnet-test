@@ -12,10 +12,6 @@ jobs:
       DOTNET_NOLOGO: true 
     steps:
       - uses: actions/checkout@v1
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 3.1
       # For some reasons the path is kinda messed up...
       # Doesn't consider the .config folder =|
       - name: Restore tools
