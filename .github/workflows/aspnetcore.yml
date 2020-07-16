@@ -23,7 +23,7 @@ jobs:
           dotnet dev-certs https --trust
           dotnet tool restore --tool-manifest .config/dotnet-tools.json
       - name: Run F# Linter
-        run: dotnet fsharplint lint --lint-config fsharplint.json MessingUp.sln
+        run: dotnet tool run dotnetsay hello from dotnetsay
 
 
 #  build-version-test:
