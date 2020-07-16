@@ -20,9 +20,9 @@ jobs:
       # Doesn't consider the .config folder =|
       - name: Restore tools
         run: |
-          dotnet tool restore --tool-manifest .config/dotnet-tools.json_
+          dotnet tool restore
       - name: Run F# Linter
-        run: dotnet tool run fsharplint lint --lint-config fsharplint.json MessingUp.sln
+        run: dotnet tool run dotnet-fsharplint lint --lint-config fsharplint.json MessingUp.sln
 
 
 #  build-version-test:

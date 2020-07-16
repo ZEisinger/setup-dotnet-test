@@ -2,10 +2,10 @@
   "version": 1,
   "isRoot": true,
   "tools": {
-    "dotnetsay": {
-      "version": "2.1.4",
+    "dotnet-fsharplint": {
+      "version": "0.13.3",
       "commands": [
-        "dotnetsay"
+        "dotnet-fsharplint"
       ]
     }
   }
