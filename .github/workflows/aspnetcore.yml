@@ -22,15 +22,15 @@ jobs:
         run: dotnet tool run dotnet-fsharplint lint --lint-config fsharplint.json MessingUp.sln
 
 
-#  build-version-test:
-#    runs-on: windows-latest
-#    steps:
-#    - uses: actions/setup-dotnet@main
-#      with:
-#        dotnet-version: '2.1.802'
-#    - run: |
-#        dotnet --version
-#        dotnet --info
+  build-version-test:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/setup-dotnet@main
+      with:
+        dotnet-version: '4.5.802'
+    - run: |
+        dotnet --version
+        dotnet --info
 #  build-version-test-no-multilevel:
 #    runs-on: windows-latest
 #    steps:
