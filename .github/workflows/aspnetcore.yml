@@ -25,9 +25,9 @@ jobs:
   build-version-test:
     runs-on: windows-latest
     steps:
-    - uses: actions/setup-dotnet@main
+    - uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '4.5.802'
+        dotnet-version: 3.1.x
     - run: |
         dotnet --version
         dotnet --info
