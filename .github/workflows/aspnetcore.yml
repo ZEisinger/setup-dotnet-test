@@ -5,27 +5,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint-code:
-    # So that we don't juggle with different OS for accessing the right path...
-    runs-on: ubuntu-latest
-    env:
-      DOTNET_NOLOGO: true 
-    steps:
-      - uses: actions/checkout@v1
-      # For some reasons the path is kinda messed up...
-      # Doesn't consider the .config folder =|
-      - name: Restore tools
-        run: |
-          echo $RUNNER_TEMP
-          dotnet tool restore
-      - name: Run F# Linter
-        run: dotnet tool run dotnet-fsharplint lint --lint-config fsharplint.json MessingUp.sln
-
-
   build-version-test:
     runs-on: windows-latest
     steps:
-    - uses: actions/setup-dotnet@v1
+    - uses: actions/setup-dotnet@fix171
       with:
         dotnet-version: 3.1.x
     - run: |
@@ -63,9 +46,9 @@ jobs:
         echo $DOTNET_ROOT
         echo $PATH
     - name: Setup .NET Core with global.json
-      uses: actions/setup-dotnet@main
+      uses: actions/setup-dotnet@fix171
       with:
-        dotnet-version: 3.1.100
+        dotnet-version: 3.0
     - name: check dotnet version late
       run: |
         dotnet --info
