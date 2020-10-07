@@ -10,11 +10,15 @@ jobs:
     steps:
       - run: |
           ls /
+          ls /imagegeneration
+          cat /imagegeneration/imagedata.json
   mac:
     runs-on: macos-latest
     steps:
       - run: |
           ls /
+          ls $HOME
+          cat $HOME/imagedata.json
   windows:
     runs-on: windows-latest
     steps:
