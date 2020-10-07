@@ -9,29 +9,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          ls \
+          ls /
   mac:
     runs-on: macos-latest
     steps:
       - run: |
-          ls \
+          ls /
   windows:
     runs-on: windows-latest
     steps:
       - run: |
           dir C:\
-          dir D:\
-          dir D:\a
-          dir C:\runners
-          dir C:\Temp
-          dir C:\image
-          dir C:\data
           Get-Content C:\imagedata.json
-          Get-Content C:\toolcache.json
-          Get-Content C:\InstalledSoftware.md
-          dir D:\a\setup-dotnet-test
-          dotnet --version
-          dotnet --info
 #  build-version-test:
 #    runs-on: windows-latest
 #    steps:
