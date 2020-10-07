@@ -5,36 +5,63 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-version-test:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          ls \
+  mac:
+    runs-on: macos-latest
+    steps:
+      - run: |
+          ls \
+  windows:
     runs-on: windows-latest
     steps:
-    - uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.x
-    - run: |
-        dir C:\
-        dir D:\
-        dir D:\a
-        dir C:\runners
-        dir C:\Temp
-        dir C:\image
-        dir C:\data
-        Get-Content C:\imagedata.json
-        Get-Content C:\toolcache.json
-        Get-Content C:\InstalledSoftware.md
-        dir D:\a\setup-dotnet-test
-        dotnet --version
-        dotnet --info
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.100
-      env:
-        DOTNET_INSTALL_DIR: /users/runner/alternate/dotnet
-    - name: Create Certificate
-      run: |
-        dotnet dev-certs https --clean
-        dotnet dev-certs https -ep src/PlaywrightSharp.TestServer/testCert.cer
+      - run: |
+          dir C:\
+          dir D:\
+          dir D:\a
+          dir C:\runners
+          dir C:\Temp
+          dir C:\image
+          dir C:\data
+          Get-Content C:\imagedata.json
+          Get-Content C:\toolcache.json
+          Get-Content C:\InstalledSoftware.md
+          dir D:\a\setup-dotnet-test
+          dotnet --version
+          dotnet --info
+#  build-version-test:
+#    runs-on: windows-latest
+#    steps:
+#    - uses: actions/setup-dotnet@v1
+#      with:
+#        dotnet-version: 3.1.x
+#    - run: |
+#        dir C:\
+#        dir D:\
+#        dir D:\a
+#        dir C:\runners
+#        dir C:\Temp
+#        dir C:\image
+#        dir C:\data
+#        Get-Content C:\imagedata.json
+#        Get-Content C:\toolcache.json
+#        Get-Content C:\InstalledSoftware.md
+#        dir D:\a\setup-dotnet-test
+#        dotnet --version
+#        dotnet --info
+#    - name: Setup .NET Core
+#      uses: actions/setup-dotnet@v1
+#      with:
+#        dotnet-version: 3.1.100
+#      env:
+#        DOTNET_INSTALL_DIR: /users/runner/alternate/dotnet
+#    - name: Create Certificate
+#      run: |
+#        dotnet dev-certs https --clean
+#        dotnet dev-certs https -ep src/PlaywrightSharp.TestServer/testCert.cer
 #  build-version-test-no-multilevel:
 #    runs-on: windows-latest
 #    steps:
